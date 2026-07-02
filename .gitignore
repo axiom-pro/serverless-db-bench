@@ -1,0 +1,5 @@
+.env
+node_modules/
+results/_pre-audit-backup/
+results/FINDINGS.md
+results/quota-*.jsonl

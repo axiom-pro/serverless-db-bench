@@ -1,0 +1,47 @@
+<svg width="920" height="470" viewBox="0 0 920 470" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI',sans-serif">
+  <rect width="920" height="470" fill="#ffffff"/>
+  <text x="28" y="28" font-size="18" font-weight="bold" fill="#222">図2：cold 接続のtransport段階分解（HTTPSプローブ, ms）</text>
+  <!-- legend -->
+  <g font-size="12" fill="#333">
+    <rect x="230" y="38" width="13" height="13" fill="#8c564b"/><text x="248" y="49">DNS</text>
+    <rect x="300" y="38" width="13" height="13" fill="#1f77b4"/><text x="318" y="49">TCP接続</text>
+    <rect x="400" y="38" width="13" height="13" fill="#ff7f0e"/><text x="418" y="49">TLS</text>
+    <rect x="470" y="38" width="13" height="13" fill="#7f7f7f"/><text x="488" y="49">残り(→TTFB)</text>
+  </g>
+  <!-- baseline y=400, 330px = 360ms => 0.9167 px/ms -->
+  <g stroke="#e8e8e8" stroke-width="1">
+    <line x1="92" y1="400" x2="700" y2="400"/>
+    <line x1="92" y1="308.3" x2="700" y2="308.3"/>
+    <line x1="92" y1="216.7" x2="700" y2="216.7"/>
+    <line x1="92" y1="125" x2="700" y2="125"/>
+  </g>
+  <g font-size="12" fill="#999" text-anchor="end">
+    <text x="86" y="404">0</text><text x="86" y="312">100</text><text x="86" y="220">200</text><text x="86" y="129">300</text>
+  </g>
+  <line x1="92" y1="400" x2="700" y2="400" stroke="#555" stroke-width="1.5"/>
+  <!-- Turso (x=130): dns5.1 tcp18.9 tls46.4 rem20.3 (数値はpx高・ms=px/0.9167) -->
+  <rect x="130" y="394.9" width="110" height="5.1" fill="#8c564b"/>
+  <rect x="130" y="376.0" width="110" height="18.9" fill="#1f77b4"/>
+  <rect x="130" y="329.6" width="110" height="46.4" fill="#ff7f0e"/>
+  <rect x="130" y="309.3" width="110" height="20.3" fill="#7f7f7f"/>
+  <text x="185" y="301" font-size="14" font-weight="bold" fill="#222" text-anchor="middle">≈99ms</text>
+  <text x="185" y="422" font-size="14" fill="#333" text-anchor="middle">Turso(東京)</text>
+  <!-- D1 (x=300): dns5.0 tcp11.7 tls22.6 rem70.4 (数値はpx高・ms=px/0.9167) -->
+  <rect x="300" y="395.0" width="110" height="5.0" fill="#8c564b"/>
+  <rect x="300" y="383.3" width="110" height="11.7" fill="#1f77b4"/>
+  <rect x="300" y="360.7" width="110" height="22.6" fill="#ff7f0e"/>
+  <rect x="300" y="290.3" width="110" height="70.4" fill="#7f7f7f"/>
+  <text x="355" y="282" font-size="14" font-weight="bold" fill="#222" text-anchor="middle">≈120ms</text>
+  <text x="355" y="422" font-size="14" fill="#333" text-anchor="middle">D1(APAC)</text>
+  <!-- Neon (x=470): dns56.3 tcp80.6 tls90.7 rem80.2 -->
+  <rect x="470" y="343.7" width="110" height="56.3" fill="#8c564b"/>
+  <rect x="470" y="263.1" width="110" height="80.6" fill="#1f77b4"/>
+  <rect x="470" y="172.4" width="110" height="90.7" fill="#ff7f0e"/>
+  <rect x="470" y="92.2" width="110" height="80.2" fill="#7f7f7f"/>
+  <text x="525" y="84" font-size="14" font-weight="bold" fill="#222" text-anchor="middle">≈336ms</text>
+  <text x="525" y="422" font-size="14" fill="#333" text-anchor="middle">Neon(Singapore)</text>
+  <!-- Neon TCP annotation (distance) -->
+  <text x="588" y="307" font-size="12.5" fill="#1f77b4">TCP 88ms ≈ 東京→Singapore RTT</text>
+  <line x1="580" y1="303" x2="580" y2="295" stroke="#1f77b4" stroke-width="1"/>
+  <text x="28" y="450" font-size="11.5" fill="#999">※Neonはpg wireでなくHTTPS GETプローブ由来＝距離の目安。TCP段≈往復RTT。cold p50・東京・2026-07（D1/Turso n=30・Neon n=15）。</text>
+</svg>

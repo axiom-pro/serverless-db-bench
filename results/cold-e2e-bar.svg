@@ -1,0 +1,37 @@
+<svg width="920" height="470" viewBox="0 0 920 470" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI',sans-serif">
+  <rect width="920" height="470" fill="#ffffff"/>
+  <text x="28" y="32" font-size="19" font-weight="bold" fill="#222">図1：cold 初回E2E（新規接続 → 最初の1クエリが返るまで, ms）</text>
+  <!-- baseline y=400, top y=70, 330px = 1300ms => 0.2538 px/ms -->
+  <g stroke="#e8e8e8" stroke-width="1">
+    <line x1="92" y1="400" x2="700" y2="400"/>
+    <line x1="92" y1="336.5" x2="700" y2="336.5"/>
+    <line x1="92" y1="273" x2="700" y2="273"/>
+    <line x1="92" y1="209.5" x2="700" y2="209.5"/>
+    <line x1="92" y1="146" x2="700" y2="146"/>
+    <line x1="92" y1="82.5" x2="700" y2="82.5"/>
+  </g>
+  <g font-size="12" fill="#999" text-anchor="end">
+    <text x="86" y="404">0</text><text x="86" y="340">250</text><text x="86" y="277">500</text>
+    <text x="86" y="213">750</text><text x="86" y="150">1000</text><text x="86" y="86">1250</text>
+  </g>
+  <line x1="92" y1="400" x2="700" y2="400" stroke="#555" stroke-width="1.5"/>
+  <!-- Turso 121 -> h=30.7 -->
+  <rect x="130" y="369.3" width="110" height="30.7" fill="#2ca02c"/>
+  <text x="185" y="360" font-size="14" font-weight="bold" fill="#2ca02c" text-anchor="middle">121ms</text>
+  <text x="185" y="422" font-size="14" fill="#333" text-anchor="middle">Turso(東京)</text>
+  <!-- D1 152 -> h=38.6 -->
+  <rect x="300" y="361.4" width="110" height="38.6" fill="#ff7f0e"/>
+  <text x="355" y="352" font-size="14" font-weight="bold" fill="#d95f02" text-anchor="middle">152ms</text>
+  <text x="355" y="422" font-size="14" fill="#333" text-anchor="middle">D1(APAC)</text>
+  <!-- Neon stacked (from baseline 400): 接続540 h137.1, wake620 h157.4, query88 h22.3 -->
+  <rect x="470" y="262.9" width="110" height="137.1" fill="#1f77b4"/>
+  <rect x="470" y="105.5" width="110" height="157.4" fill="#9467bd"/>
+  <rect x="470" y="83.2" width="110" height="22.3" fill="#bdbdbd"/>
+  <text x="525" y="75" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">1245ms</text>
+  <text x="525" y="422" font-size="14" fill="#333" text-anchor="middle">Neon(Singapore)</text>
+  <!-- segment callouts -->
+  <text x="590" y="335" font-size="12.5" fill="#1f77b4">接続確立 540（pg多往復×距離）</text>
+  <text x="590" y="188" font-size="12.5" fill="#9467bd">純wake 620（scale-to-zero）</text>
+  <text x="590" y="98" font-size="12.5" fill="#888">初回クエリ 88</text>
+  <text x="28" y="452" font-size="11.5" fill="#999">cold p50・東京クライアント・2026-07（D1/Turso n=30・Neon n=15）。Neonのみ内訳を分解。D1/TursoはHTTP1リクエストに接続+クエリを内包（≒E2E）。</text>
+</svg>

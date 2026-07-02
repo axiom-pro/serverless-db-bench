@@ -1,0 +1,21 @@
+{
+  "name": "serverless-db-bench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Free-tier serverless DB harness: cold start x quota wall x multi-region latency (Supabase/Neon/Turso/D1).",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "selftest": "node bin/selftest.mjs",
+    "setup": "node --env-file=.env bin/setup.mjs",
+    "cold": "node --env-file=.env bin/coldstart.mjs --mode cold",
+    "warm": "node --env-file=.env bin/coldstart.mjs --mode warm",
+    "quota": "node --env-file=.env bin/quota.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.13.1",
+    "@neondatabase/serverless": "^0.10.4",
+    "@libsql/client": "^0.14.0"
+  },
+  "comment": "D1 uses native fetch (no package). Install only what you run: `npm i` pulls all three."
+}
